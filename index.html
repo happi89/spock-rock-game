@@ -11,25 +11,28 @@
 </head>
 <body>
   <div class="game-container">
-		<header>
+		<header class="header">
 			<h1>Rock Paper Scissors Lizard Spock</h1>
 		</header>
 
 		<div class="player-container" id="player">
-			<h2>You - <span id="playerScore">0</span> <span id="playerChoice"></span></h2>
-			<i class="far fa-hand-rock" id="playerRock"></i>
-			<i class="far fa-hand-paper" id="playerPaper"></i>
-			<i class="far fa-hand-scissors" id="playerScissors"></i>
-			<i class="far fa-hand-lizard" id="playerLizard"></i>
-			<i class="far fa-hand-spock" id="playerSpock"></i>
+			<h2>You - <span id="playerScore">0</span> <span id="playerChoice" class="choice"></span></h2>
+			
+			<i class="far fa-hand-rock" id="playerRock" title="Rock"></i>
+			<i class="far fa-hand-paper" id="playerPaper" title="Paper"></i>
+			<i class="far fa-hand-scissors" id="playerScissors" title="scissors"></i>
+			<i class="far fa-hand-lizard" id="playerLizard" title="lizard"></i>
+			<i class="far fa-hand-spock" id="playerSpock" title="Spock"></i>
 		</div>
 
 		<div class="player-container" id="computer">
-			<i class="far fa-hand-rock" id="computerRock"></i>
-			<i class="far fa-hand-paper" id="computerPaper"></i>
-			<i class="far fa-hand-scissors" id="computerScissors"></i>
-			<i class="far fa-hand-lizard" id="computerLizard"></i>
-			<i class="far fa-hand-spock" id="computerSpock"></i>
+			<h2>Computer - <span id="computerScore">0</span> <span id="computerChoice" class="choice"></span></h2>
+
+			<i class="far fa-hand-rock" id="computerRock" title="Rock"></i></i>
+			<i class="far fa-hand-paper" id="computerPaper" title="Paper"></i>
+			<i class="far fa-hand-scissors" id="computerScissors" title="Scissors"></i>
+			<i class="far fa-hand-lizard" id="computerLizard" title="Lizard"></i>
+			<i class="far fa-hand-spock" id="computerSpock" title="Spock"></i>
 		</div>
 
 		<i class="fas fa-sync-alt reset-icon"></i>
