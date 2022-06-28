@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spock Rock Game</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="game-container">
+		<header>
+			<h1>Rock Paper Scissors Lizard Spock</h1>
+		</header>
+
+		<div class="player-container" id="player">
+			<h2>You - <span id="playerScore">0</span> <span id="playerChoice"></span></h2>
+			<i class="far fa-hand-rock" id="playerRock"></i>
+			<i class="far fa-hand-paper" id="playerPaper"></i>
+			<i class="far fa-hand-scissors" id="playerScissors"></i>
+			<i class="far fa-hand-lizard" id="playerLizard"></i>
+			<i class="far fa-hand-spock" id="playerSpock"></i>
+		</div>
+
+		<div class="player-container" id="computer">
+			<i class="far fa-hand-rock" id="computerRock"></i>
+			<i class="far fa-hand-paper" id="computerPaper"></i>
+			<i class="far fa-hand-scissors" id="computerScissors"></i>
+			<i class="far fa-hand-lizard" id="computerLizard"></i>
+			<i class="far fa-hand-spock" id="computerSpock"></i>
+		</div>
+
+		<i class="fas fa-sync-alt reset-icon"></i>
+
+		<div class="reslt-container">
+			<h3 id="resultText" class="result-text">You Won!</h3>
+		</div>
+	</div>
+</body>
+</html>
