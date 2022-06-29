@@ -1,7 +1,7 @@
 const playerScore = document.getElementById('playerScore');
 const playerChoice = document.getElementById('playerChoice');
 const computerScore = document.getElementById('computerScore');
-const computerChoice = document.getElementById('computerChoice');
+const computerChoiceEl = document.getElementById('computerChoice');
 const resultText = document.getElementById('resultText');
 const gameIcons = document.querySelectorAll('.far')
 
@@ -24,7 +24,32 @@ function resetSelected() {
   });
 }
 
-function select(choice) {
+const computerChoice = () => {
+  const random = Math.floor(Math.random() * 5);
+  switch(random) {
+    case 0:
+      computerSelect('rock');
+      break;
+    case 1:
+      computerSelect('paper');
+      break;
+    case 2:
+      computerSelect('scissors');
+      break;
+    case 3:
+      computerSelect('lizard');
+      break;
+    case 4:
+      computerSelect('spock');
+      break;
+    default:
+      break;
+  }
+}
+
+
+function playerSelect(choice) {
+  computerChoice();
   resetSelected();
   // update player choice and add 'selected' class
   switch(choice) {
@@ -47,6 +72,35 @@ function select(choice) {
     case 'spock':
       playerChoice.textContent = '--- Spock';
       playerSpock.classList.add('selected');
+      break;
+    default:
+      break;
+  }
+}
+
+const computerSelect = (computerChoice, PlayerChoice) => {
+  // update computer choice and add 'selected' class
+  console.log(computerChoice)
+  switch(computerChoice) {
+    case 'rock':
+      computerChoiceEl.textContent = '--- Rock';
+      computerRock.classList.add('selected');
+      break;
+    case 'paper':
+      computerChoiceEl.textContent = '--- Paper';
+      computerPaper.classList.add('selected');
+      break;
+    case 'scissors':
+      computerChoiceEl.textContent = '--- Scissors';
+      computerScissors.classList.add('selected');
+      break;
+    case 'lizard':
+      computerChoiceEl.textContent = '--- Lizard';
+      computerLizard.classList.add('selected');
+      break;
+    case 'spock':
+      computerChoiceEl.textContent = '--- Spock';
+      computerSpock.classList.add('selected');
       break;
     default:
       break;
