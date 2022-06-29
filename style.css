@@ -47,8 +47,32 @@ h3 {
   margin: 50px;
 }
 
+.player-container #computerChoice {
+  color: red;
+}
+
+.player-container #playerChioce {
+  color: rgb(0, 123, 255);
+}
+
+.selected {
+  color: black;
+}
+
+#playerChoice {
+  color:rgb(0, 123, 255);
+}
+
+#conputerChoice {
+  color: red;
+}
+
 #player {
   color: rgb(0, 123, 255);
+}
+
+#player .far:last-child, #computer .far:last-child {
+  margin-right: 0;
 }
 
 #computer {
