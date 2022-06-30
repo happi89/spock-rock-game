@@ -17,6 +17,8 @@ const computerScissors = document.getElementById('computerScissors');
 const computerLizard = document.getElementById('computerLizard');
 const computerSpock = document.getElementById('computerSpock');
 
+const resetBtn = document.getElementById('resetBtn');
+
 const choices = {
   rock: { name: 'rock', defeats: ['scissors', 'lizard'] },
   paper: { name: 'paper', defeats: ['rock', 'spock'] },
@@ -106,8 +108,6 @@ function playerSelect(choice) {
   compareSelections();
 }  
 
-
-
 function compareSelections() {
   // compare computer and player selections
   if (playerChoice === computerChoice) {
@@ -122,3 +122,15 @@ function compareSelections() {
     computerScore.textContent = computerScoreNumber;
   }
 }
+
+function resetGame() {
+  // reset game
+  playerScoreNumber = 0;
+  computerScoreNumber = 0;
+  playerScore.textContent = playerScoreNumber;
+  computerScore.textContent = computerScoreNumber;
+  resultText.textContent = '';
+  resetSelected();
+}
+
+resetBtn.addEventListener('click', resetGame)
