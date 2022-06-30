@@ -1,24 +1,30 @@
-const playerScore = document.getElementById('playerScore');
-const playerChoiceEl = document.getElementById('playerChoice');
-const computerScore = document.getElementById('computerScore');
-const computerChoiceEl = document.getElementById('computerChoice');
-const resultText = document.getElementById('resultText');
+// document.getElementById
+const docElId = document.getElementById.bind(document);
+
+// scores, results text, game icons, and reset button
+const playerScore = docElId('playerScore');
+const playerChoiceEl = docElId('playerChoice');
+const computerScore = docElId('computerScore');
+const computerChoiceEl = docElId('computerChoice');
+const resultText = docElId('resultText');
 const gameIcons = document.querySelectorAll('.far');
+const resetBtn = docElId('resetBtn');
 
-const playerRock = document.getElementById('playerRock');
-const playerPaper = document.getElementById('playerPaper');
-const playerScissors = document.getElementById('playerScissors');
-const playerLizard = document.getElementById('playerLizard');
-const playerSpock = document.getElementById('playerSpock');
+// player elements
+const playerRock = docElId('playerRock');
+const playerPaper = docElId('playerPaper');
+const playerScissors = docElId('playerScissors');
+const playerLizard = docElId('playerLizard');
+const playerSpock = docElId('playerSpock');
 
-const computerRock = document.getElementById('computerRock');
-const computerPaper = document.getElementById('computerPaper');
-const computerScissors = document.getElementById('computerScissors');
-const computerLizard = document.getElementById('computerLizard');
-const computerSpock = document.getElementById('computerSpock');
+// computer elements
+const computerRock = docElId('computerRock');
+const computerPaper = docElId('computerPaper');
+const computerScissors = docElId('computerScissors');
+const computerLizard = docElId('computerLizard');
+const computerSpock = docElId('computerSpock');
 
-const resetBtn = document.getElementById('resetBtn');
-
+// possible outcomes of game
 const choices = {
   rock: { name: 'rock', defeats: ['scissors', 'lizard'] },
   paper: { name: 'paper', defeats: ['rock', 'spock'] },
@@ -32,6 +38,7 @@ let playerChoice = '';
 let computerScoreNumber = 0;
 let playerScoreNumber = 0;
 
+// reset selected icons when new icon is selected
 function resetSelected() {
   // reset all selected icons 
   gameIcons.forEach((icon) => {
@@ -39,6 +46,7 @@ function resetSelected() {
   });  
 }  
 
+// pl;ayer selection
 function playerSelect(choice) {
   resetSelected();
   // update player choice and add 'selected' class
@@ -73,41 +81,43 @@ function playerSelect(choice) {
     }    
     computerSelect();
   }  
-  
-  const computerSelect = () => {
-    const random = Math.floor(Math.random() * 5);
-    switch(random) {
-    case 0:
-      computerChoice = 'rock'; 
-      computerChoiceEl.textContent = ' --- Rock';
-      computerRock.classList.add('selected');
-      break;
-    case 1:
-      computerChoice = 'paper';
-      computerChoiceEl.textContent = ' --- Paper';
-      computerPaper.classList.add('selected');
-      break;
-    case 2:
-      computerChoice = 'scissors';
-      computerChoiceEl.textContent = ' --- Scissors';
-      computerScissors.classList.add('selected');
-      break;
-    case 3:
-      computerChoice = 'lizard';
-      computerChoiceEl.textContent = ' --- Lizard';
-      computerLizard.classList.add('selected');
-      break;
-    case 4:
-      computerChoice = 'spock';
-      computerChoiceEl.textContent = ' --- Spock';
-      computerSpock.classList.add('selected');
-      break;
-    default:
-      break;
+
+// computer selection
+const computerSelect = () => {
+  const random = Math.floor(Math.random() * 5);
+  switch(random) {
+  case 0:
+    computerChoice = 'rock'; 
+    computerChoiceEl.textContent = ' --- Rock';
+    computerRock.classList.add('selected');
+    break;
+  case 1:
+    computerChoice = 'paper';
+    computerChoiceEl.textContent = ' --- Paper';
+    computerPaper.classList.add('selected');
+    break;
+  case 2:
+    computerChoice = 'scissors';
+    computerChoiceEl.textContent = ' --- Scissors';
+    computerScissors.classList.add('selected');
+    break;
+  case 3:
+    computerChoice = 'lizard';
+    computerChoiceEl.textContent = ' --- Lizard';
+    computerLizard.classList.add('selected');
+    break;
+  case 4:
+    computerChoice = 'spock';
+    computerChoiceEl.textContent = ' --- Spock';
+    computerSpock.classList.add('selected');
+    break;
+  default:
+    break;
   }   
   compareSelections();
 }  
 
+// compare selections and update scores
 function compareSelections() {
   // compare computer and player selections
   if (playerChoice === computerChoice) {
@@ -123,6 +133,7 @@ function compareSelections() {
   }
 }
 
+// reset game to default
 function resetGame() {
   // reset game
   playerScoreNumber = 0;
@@ -133,4 +144,5 @@ function resetGame() {
   resetSelected();
 }
 
+// event listeners
 resetBtn.addEventListener('click', resetGame)
