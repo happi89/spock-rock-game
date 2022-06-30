@@ -9,7 +9,6 @@
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 
 ## Overview
@@ -25,39 +24,43 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Screenshot from 2022-06-29 23-54-27](https://user-images.githubusercontent.com/101960666/176589246-b72fdc32-8ac3-4a37-9a31-381fc7e9fc55.png)
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Rock Paper Scissors Lizard Spock](https://happi89.github.io/spock-rock-game-JS/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
 - Flexbox
 - Mobile-first workflow
 
 ### What I learned
 
+f=First time I used the onclick function in html
 ```html
-<h1>Some HTML code I'm proud of</h1>
+onclick="playerSelect('rock')"
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+
+learnt about the bind function
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+document.getElementById.bind(document);
+```
+
+learnt about switch statements
+```js
+switch(choice) {
+    case 'rock':
+      playerChoice = 'rock';
+      playerChoiceEl.textContent = ' --- Rock';
+      playerRock.classList.add('selected');
+      break;
 ```
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
+- [W3Schools Bind Function](https://www.w3schools.com/js/js_function_bind.asp) - This helped me write fewer characters when grabbing elements from the dom using get element by id.
+- [W3Schools Switch Statement](https://www.w3schools.com/js/js_switch.asp) - This gave me a quick refresher about the switch statement and I used it for the first time in a real project instead of a if statement. I will be using the switch statement instead from now when dealing with alot of cases/if blocks.
