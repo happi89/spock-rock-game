@@ -1,5 +1,5 @@
 const playerScore = document.getElementById('playerScore');
-const playerChoice = document.getElementById('playerChoice');
+const playerChoiceEl = document.getElementById('playerChoice');
 const computerScore = document.getElementById('computerScore');
 const computerChoiceEl = document.getElementById('computerChoice');
 const resultText = document.getElementById('resultText');
@@ -18,14 +18,15 @@ const computerLizard = document.getElementById('computerLizard');
 const computerSpock = document.getElementById('computerSpock');
 
 const choices = {
-  rock: { name: 'Rock', defeats: ['scissors', 'lizard'] },
-  paper: { name: 'Paper', defeats: ['rock', 'spock'] },
-  scissors: { name: 'Scissors', defeats: ['paper', 'lizard'] },
-  lizard: { name: 'Lizard', defeats: ['paper', 'spock'] },
-  spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
+  rock: { name: 'rock', defeats: ['scissors', 'lizard'] },
+  paper: { name: 'paper', defeats: ['rock', 'spock'] },
+  scissors: { name: 'scissors', defeats: ['paper', 'lizard'] },
+  lizard: { name: 'lizard', defeats: ['paper', 'spock'] },
+  spock: { name: 'spock', defeats: ['scissors', 'rock'] },
 };
 
 let computerChoice = '';
+let playerChoice = '';
 let computerScoreNumber = 0;
 let playerScoreNumber = 0;
 
@@ -38,89 +39,86 @@ function resetSelected() {
 
 function playerSelect(choice) {
   resetSelected();
-  computerSelect();
   // update player choice and add 'selected' class
   switch(choice) {
     case 'rock':
-      playerChoice.textContent = ' --- Rock';
+      playerChoice = 'rock';
+      playerChoiceEl.textContent = ' --- Rock';
       playerRock.classList.add('selected');
       break;
     case 'paper':
-      playerChoice.textContent = ' --- Paper';
+      playerChoice = 'paper';
+      playerChoiceEl.textContent = ' --- Paper';
       playerPaper.classList.add('selected');
       break;
     case 'scissors':
-      playerChoice.textContent = ' --- Scissors';
+      playerChoice = 'scissors';
+      playerChoiceEl.textContent = ' --- Scissors';
       playerScissors.classList.add('selected');
       break;
     case 'lizard':
-      playerChoice.textContent = ' --- Lizard';
+      playerChoice = 'lizard';
+      playerChoiceEl.textContent = ' --- Lizard';
       playerLizard.classList.add('selected');
       break;
     case 'spock':
-      playerChoice.textContent = ' --- Spock';
+      playerChoice = 'spock';
+      playerChoiceEl.textContent = ' --- Spock';
       playerSpock.classList.add('selected');
       break;
     default:
       break;
-  }    
-}  
-
-const computerSelect = () => {
-  const random = Math.floor(Math.random() * 5);
-  switch(random) {
+    }    
+    computerSelect();
+  }  
+  
+  const computerSelect = () => {
+    const random = Math.floor(Math.random() * 5);
+    switch(random) {
     case 0:
       computerChoice = 'rock'; 
-      displayComputerSelect(computerChoice);
-      break;
-    case 1:
-      computerChoice = 'paper';
-      displayComputerSelect(computerChoice);
-      break;
-    case 2:
-      computerChoice = 'scissors';
-      displayComputerSelect(computerChoice);
-      break;
-    case 3:
-      computerChoice = 'lizard';
-      displayComputerSelect(computerChoice);
-      break;
-    case 4:
-      computerChoice = 'spock';
-      displayComputerSelect(computerChoice);
-      break;
-    default:
-      break;
-  }    
-}  
-
-const displayComputerSelect = (computerChoice) => {
-  // update computer choice and add 'selected' class
-  switch(computerChoice) {
-    case 'rock':
       computerChoiceEl.textContent = ' --- Rock';
       computerRock.classList.add('selected');
       break;
-    case 'paper':
+    case 1:
+      computerChoice = 'paper';
       computerChoiceEl.textContent = ' --- Paper';
       computerPaper.classList.add('selected');
       break;
-    case 'scissors':
+    case 2:
+      computerChoice = 'scissors';
       computerChoiceEl.textContent = ' --- Scissors';
       computerScissors.classList.add('selected');
       break;
-    case 'lizard':
+    case 3:
+      computerChoice = 'lizard';
       computerChoiceEl.textContent = ' --- Lizard';
       computerLizard.classList.add('selected');
       break;
-    case 'spock':
+    case 4:
+      computerChoice = 'spock';
       computerChoiceEl.textContent = ' --- Spock';
       computerSpock.classList.add('selected');
       break;
     default:
       break;
-  }    
+  }   
+  compareSelections();
 }  
 
 
 
+function compareSelections() {
+  // compare computer and player selections
+  if (playerChoice === computerChoice) {
+    resultText.textContent = 'It\'s a tie!';
+  } else if (choices[playerChoice].defeats.includes(computerChoice)) {
+    resultText.textContent = 'You win!';
+    playerScoreNumber++;
+    playerScore.textContent = playerScoreNumber;
+  } else {
+    resultText.textContent = 'You lose!';
+    computerScoreNumber++;
+    computerScore.textContent = computerScoreNumber;
+  }
+}
