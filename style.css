@@ -35,6 +35,21 @@ h3 {
   text-align: center;
 }
 
+.instructions {
+  font-size: 1.2rem;
+  color: dodgerblue;
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem
+}
+
+.instructions:hover {
+  text-decoration: underline;
+}
+
 .game-container {
   min-width: 30vw;
   min-height: 60vh;
